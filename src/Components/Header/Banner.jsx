@@ -34,10 +34,12 @@ const Banner = () => {
       <div className="swiper h-full w-full">
         <div className="swiper-wrapper">
           <div
-            className="swiper-slide bg-cover bg-center h-full w-full bg-no-repeat bg-[url('https://imgur.com/fD869A0.png')]"
+            className="swiper-slide bg-cover bg-center h-full w-full bg-no-repeat 
+            bg-[url('https://imgur.com/fD869A0.png')]"
           ></div>
           <div
-            className="swiper-slide bg-cover bg-center h-full w-full md:bg-top bg-no-repeat
+            className="swiper-slide bg-cover bg-center h-full w-full md:bg-top 
+            bg-no-repeat
             bg-[url('https://imgur.com/VlT9kzl.png')]" 
           ></div>
           <div
@@ -52,8 +54,10 @@ const Banner = () => {
       </div>
 
       
-      <div className="absolute inset-0  flex flex-col justify-center items-center text-center px-4 z-10 bg-black/30">
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg space-y-5">
+      <div className="absolute inset-0  flex flex-col justify-center items-center 
+      text-center px-4 z-10 bg-black/30">
+        <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg 
+        space-y-5">
           Connect,  Cultivate  and Grow with <br />Gardeners Near You
         </h1>
         <p className="mt-6 text-lg md:text-xl text-[#ffffffd8] drop-shadow-md">

@@ -31,14 +31,17 @@ const Navbar = () => {
          rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link>Home</Link>
+               <Link className="text-white">Home</Link>
               </li>
               <li>
-                <Link>About</Link>
+              <Link className="text-white">Browse Tips</Link>
               </li>
               <li>
-                <Link>Contact</Link>
-              </li>
+              <Link className="text-white">Share a garden Tips</Link>
+            </li>
+              <li>
+              <Link className="text-white">My Tips</Link>
+            </li>
             </ul>
           </div>
           <img
@@ -77,12 +80,12 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <a
+          <Link to='/signin'
             className="btn bg-[#204e51] hover:bg-[#f26b5e]
            text-white rounded ml-5 mr-5"
           >
             Sign In
-          </a>
+          </Link>
           <Toggle></Toggle>
         </div>
       </div>
