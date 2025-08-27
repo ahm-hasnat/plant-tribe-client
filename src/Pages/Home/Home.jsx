@@ -8,7 +8,7 @@ import TrendingTips from "../../Components/TrendingTips/TrendingTips";
 const Home = () => {
  
   return (
-    <div className="bg-white">
+    <div className="bg-base-100">
       <section className="z-0 top-10">
         <Banner></Banner>
       </section>

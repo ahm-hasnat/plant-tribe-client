@@ -1,46 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import React from 'react';
+import { FaFacebookF, FaInstagram, FaTwitter, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
-const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (darkMode) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
-
+const Footer = () => {
   return (
-    <div className="min-h-screen bg-[#204e51] dark:bg-[#10282a] text-white transition duration-300 p-4">
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="flex items-center gap-2 px-4 py-2 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white shadow"
-      >
-        {darkMode ? (
-          <>
-            <FiSun className="text-xl" />
-            <span>Light Mode</span>
-          </>
-        ) : (
-          <>
-            <FiMoon className="text-xl" />
-            <span>Dark Mode</span>
-          </>
-        )}
-      </button>
+    <footer className="bg-[#204e51] text-white pt-12 pb-6 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <div className="mt-8">
-        <p className="text-lg">This background changes with dark mode!</p>
+      
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+          <ul className="space-y-2 text-sm text-gray-200">
+            <li className="flex items-center gap-2">
+              <FaEnvelope /> hello@planttribe.com
+            </li>
+            <li className="flex items-center gap-2">
+              <FaPhoneAlt /> +1 (800) 555-PLNT
+            </li>
+            <li>123 Greenhouse Lane, Portland, OR</li>
+          </ul>
+        </div>
+
+    
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Information</h3>
+          <ul className="space-y-2 text-sm text-gray-200">
+            <li><a href="/terms" className="hover:underline">Terms & Conditions</a></li>
+            <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
+            <li><a href="/faq" className="hover:underline">FAQs</a></li>
+            <li><a href="/support" className="hover:underline">Support</a></li>
+          </ul>
+        </div>
+
+       
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+          <div className="flex gap-4 text-white text-lg">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+              <FaFacebookF />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+              <FaInstagram />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+              <FaTwitter />
+            </a>
+          </div>
+        </div>
+
       </div>
-    </div>
+
+      <div className="mt-10 border-t border-green-700 pt-4 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} PlantTribe. All rights reserved.
+      </div>
+    </footer>
   );
 };
 
-export default DarkModeToggle;
+export default Footer;

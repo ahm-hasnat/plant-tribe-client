@@ -3,10 +3,11 @@ import Navbar from '../Components/Header/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Header/Footer';
 
+
 const MainLayout = () => {
     return (
-        <div>
-            
+        <div className='bg-white'>
+
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

@@ -4,8 +4,8 @@ import Service from '../Service/Service';
 const PastProjects = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 text-center">
-      <h1 className="text-4xl font-bold text-primary mb-4">Our Past Projects</h1>
-      <p className="text-md text-secondary mb-10">
+      <h1 className="text-4xl font-bold big mb-4">Our Past Projects</h1>
+      <p className="text-md small mb-10">
         Some of our beautiful projects and landscaping works across the country. 
         From lush residential gardens to modern commercial landscapes,<br /> each project
          reflects our commitment to quality, creativity, and sustainability. 
