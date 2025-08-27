@@ -1,8 +1,31 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink } from "react-router";
 import Toggle from "../ToggleTheme/Toggle";
+import Swal from 'sweetalert2'
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+const {user,signout} = use(AuthContext);
+ const handleSignOut = () =>{
+   
+  signout()
+  .then(()=>{
+              Swal.fire({
+                 title: "Logged Out!",
+                 text: "User Logged Out.Stay connected!.",
+                 icon: "info",
+                  
+               });
+        navigate('/auth/login')
+        })
+
+
+
+      }
+
+    const activeLink = ({ isActive }) =>
+  isActive ? "underline small" : "small";
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm px-16 fixed z-50 top-0 ">
@@ -31,16 +54,19 @@ const Navbar = () => {
          rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-               <Link className="text-white">Home</Link>
+              <NavLink to="/" className={activeLink}>Home</NavLink>
               </li>
               <li>
-              <Link className="text-white">Browse Tips</Link>
+              <NavLink to="/explore" className={activeLink}>Explore Gardeners</NavLink>
               </li>
               <li>
-              <Link className="text-white">Share a garden Tips</Link>
+             <NavLink to="/tips" className={activeLink}>Browse Tips</NavLink>
+              </li>
+              <li>
+              <NavLink to="/share" className={activeLink}>Share a garden Tips</NavLink>
             </li>
               <li>
-              <Link className="text-white">My Tips</Link>
+             <NavLink to="/mytips" className={activeLink}>My Tips</NavLink>
             </li>
             </ul>
           </div>
@@ -53,39 +79,36 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link className="small">Home</Link>
+             <li>
+              <NavLink to="/" className={activeLink}>Home</NavLink>
+              </li>
+              <li>
+              <NavLink to="/explore" className={activeLink}>Explore Gardeners</NavLink>
+              </li>
+              <li>
+             <NavLink to="/tips" className={activeLink}>Browse Tips</NavLink>
+              </li>
+              <li>
+              <NavLink to="/share" className={activeLink}>Share a garden Tips</NavLink>
             </li>
-            <li>
-              <Link className="small">Browse Tips</Link>
-            </li>
-            <li>
-              <Link className="small">Share a garden Tips</Link>
-            </li>
-            <li>
-              <Link className="small">My Tips</Link>
+              <li>
+             <NavLink to="/mytips" className={activeLink}>My Tips</NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://randomuser.me/api/portraits/men/1.jpg"
-              />
-            </div>
-          </div>
+         
+
+         {user ? <button onClick={handleSignOut}  className="btn bg-[#204e51] hover:bg-[#f26b5e]
+           text-white rounded ml-5 mr-5"> Sign Out</button>
+          :
           <Link to='/signin'
             className="btn bg-[#204e51] hover:bg-[#f26b5e]
            text-white rounded ml-5 mr-5"
           >
             Sign In
           </Link>
+}
           <Toggle></Toggle>
         </div>
       </div>

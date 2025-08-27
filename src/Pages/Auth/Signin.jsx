@@ -1,10 +1,67 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+
 
 const Signin = () => {
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
+  const {user,signIn,signInWithGoggle} = use(AuthContext);
+
+  const handleGoggleSignIn = () =>{
+    
+     signInWithGoggle()
+    .then(() => {
+        Swal.fire({
+      title: "Success!",
+      text: "Logged in Successfully!.",
+      icon: "success",
+       
+    });
+   navigate('/');
+    })
+
+  }
+    const handleSignIn = e =>{
+         
+    e.preventDefault();
+   const form = e.target;
+   const email = form.email.value;
+   const password = form.password.value;
+
+   signIn(email,password)
+  .then((result) =>{
+        const user = result.user;
+        // console.log(user);
+         Swal.fire({
+      title: "Success!",
+      text: "Logged in Successfully!.",
+      icon: "success",
+       
+    });
+   navigate('/');
+      }
+     
+    )
+    .catch((error)=>{
+       const errorCode = error.code;
+       console.log(errorCode);
+
+        if (error.code === 'auth/invalid-credential') {
+    Swal.fire({
+      title: 'Login Failed',
+      text: 'Email or password is incorrect.',
+      icon: 'error',
+      confirmButtonText: 'Try Again',
+    });
+      
+   }
+        }
+    )
+
+    }
   return (
     <div className="hero">
       <div className="hero-content flex-col lg:flex">
@@ -16,7 +73,7 @@ const Signin = () => {
     shadow-2xl border border-gray-200"
         >
           <div className="card-body">
-            <form className="form ">
+            <form onSubmit={handleSignIn} className="form ">
               <label className="label">Email</label>
               <input
                 type="email"
@@ -71,7 +128,7 @@ const Signin = () => {
               <p className=" font-light text-xs m-4">Or</p>
 
               {/* Google */}
-              <button className="btn bg-white text-black border-[#e5e5e5] mb-3">
+              <button onClick={handleGoggleSignIn} className="btn bg-white text-black border-[#e5e5e5] mb-3">
                 <svg
                   aria-label="Google logo"
                   width="16"

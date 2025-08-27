@@ -6,6 +6,7 @@ import Home from '../Pages/Home/Home';
 import Signin from '../Pages/Auth/Signin';
 import Register from '../Pages/Auth/Register';
 import ForgetPass from '../Pages/Auth/ForgetPass';
+import ShareTips from '../Pages/ShareTips/ShareTips';
 
 
 export const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             element:<Home></Home>,
             loader : ()=> fetch('http://localhost:3000/gardeners')
           },
+          {
+            element: <ShareTips></ShareTips>,
+            path :'/sharetips',
+          }
 
    ]
   },

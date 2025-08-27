@@ -55,12 +55,7 @@ const FeaturedGardeners = () => {
             </div>
           ))}
         </div>
-         <div className="text-center mb-4 mt-6">
-        <button className="btn  bg-[#204e51] hover:bg-[#f26b5e] text-white 
-        rounded px-8 py-3 transition">
-          Explore All Gardeners
-        </button>
-      </div>
+        
       </section>
     );
 };

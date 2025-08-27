@@ -58,7 +58,7 @@ const PastProjects = () => {
       <div className="text-center mb-10">
         <button className="btn bg-[#204e51] hover:bg-[#f26b5e] text-white 
         rounded px-8 py-3 transition">
-          View More
+          Explore More
         </button>
       </div>
 

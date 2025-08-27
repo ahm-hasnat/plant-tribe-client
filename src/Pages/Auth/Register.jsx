@@ -1,10 +1,87 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
+
 
 const Register = () => {
+    const {createUser,setUser} = use(AuthContext);
+    const [passError, setPassError] = useState('')
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
+
+  const handleRegister = e =>{
+  
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const userData = Object.fromEntries(formData.entries());
+    
+    const {name,photo,email,password} = userData;
+    console.log(name);
+    
+      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+     const hasLength = password.length >= 8;
+
+      if (!hasLength && !hasUpper && !hasLower && !hasSpecial) {
+        setPassError("Password must be at least 8 characters, include at least one uppercase,one lowercase letter and one special character.");
+      return;
+      }
+       else if (!hasLength) {
+     setPassError("Password must be at least 8 characters.");
+    return;
+      }
+       else if (!hasUpper) {
+    setPassError("Include at least one uppercase letter.");
+      return;
+    } 
+    else if (!hasLower) {
+       setPassError("Include at least one lowercase letter.");
+      return;
+    } 
+     else if (!hasSpecial) {
+  setPassError("Include at least one special character.");
+  return;
+    }
+    else {
+       setPassError(""); 
+  } 
+    
+  createUser(email,password)
+  .then((result) =>{
+    console.log(result);
+    const user = result.user;
+
+   setUser(user);
+
+        Swal.fire({
+    title: "Success!",
+    text: "Registration completed.!!",
+    icon: "success",
+  });
+  navigate("/");
+  } )
+
+
+ 
+  .catch((error) => {
+    if (error.code === 'auth/email-already-in-use') {
+      Swal.fire({
+        title: "User already exists!",
+        icon: "warning",
+        text: "Please log in!",
+        draggable: true,
+      });
+        navigate("/signin");
+    }
+    })
+   
+
+  }
+
   return (
     <div className="hero">
       <div className="hero-content flex-col lg:flex">
@@ -16,7 +93,7 @@ const Register = () => {
     shadow-2xl border border-gray-200"
         >
           <div className="card-body">
-            <form className="form ">
+            <form onSubmit={handleRegister} className="form ">
               <label className="label">Name</label>
               <input
                 type="text"
@@ -47,6 +124,7 @@ const Register = () => {
                   placeholder="Password"
                   required
                 />
+                {passError && <p className="text-xs text-error">{passError}</p>}
                 <button
                   onClick={() => setShowPass(!showPass)}
                   type="button"
@@ -61,7 +139,7 @@ const Register = () => {
                 </button>
               </div>
               <div className="flex items-center gap-2 mt-1">
-                <input type="checkbox" defaultChecked className="checkbox checkbox-sm" />
+                <input type="checkbox" defaultChecked className="checkbox checkbox-sm " required/>
                 <p className="text-xs">Accept terms & conditions</p>
               </div>
               <button
