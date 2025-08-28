@@ -4,6 +4,7 @@ import { Outlet } from 'react-router';
 import Footer from '../Components/Header/Footer';
 
 
+
 const MainLayout = () => {
     return (
         <div className='bg-white'>

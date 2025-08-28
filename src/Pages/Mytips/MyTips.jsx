@@ -12,10 +12,12 @@ const MyTips = () => {
   const allTipsData = useLoaderData();
   const email = user?.email;
 
-   const [myTips, setMyTips] = useState([]);
+  const [myTips, setMyTips] = useState([]);
+  const [singleTip, setSingleTip] = useState("");
 
-       console.log(myTips);
-         useEffect(() => {
+  //  console.log(singleTip);
+  //    console.log(myTips);
+  useEffect(() => {
     if (user?.email) {
       const initialMyTips = allTipsData.filter((tip) => tip.email === email);
 
@@ -23,8 +25,18 @@ const MyTips = () => {
     }
   }, [user, allTipsData]);
 
+  const getTableData = (id) => {
+    const Tip = myTips.find((tip) => tip._id === id);
 
-
+    setSingleTip(Tip);
+    console.log(singleTip);
+  };
+  const handleTipUpdate = (updatedTip) => {
+  const updatedList = myTips.map(tip =>
+    tip._id === updatedTip._id ? updatedTip : tip
+  );
+  setMyTips(updatedList);
+};
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -41,18 +53,16 @@ const MyTips = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if(data.deletedCount){
-                 
-      const remainingTips = myTips.filter(tip=> tip._id !== id)
-                setMyTips(remainingTips);
+            if (data.deletedCount) {
+              const remainingTips = myTips.filter((tip) => tip._id !== id);
+              setMyTips(remainingTips);
 
-                          Swal.fire({
-              title: "Deleted Successfully!",
-              text: "Your tip has been deleted.",
-              icon: "success",
-            });
+              Swal.fire({
+                title: "Deleted Successfully!",
+                text: "Your tip has been deleted.",
+                icon: "success",
+              });
             }
-  
           });
       }
     });
@@ -86,7 +96,6 @@ const MyTips = () => {
                 <tr key={tip._id}>
                   <td>{index + 1}</td>
 
-                 
                   <td>
                     <div className="w-24 h-18 rounded overflow-hidden">
                       <img
@@ -115,15 +124,19 @@ const MyTips = () => {
                     </span>
                   </td>
                   <td className=" ">
-                    <UpdateTip myTips={myTips}></UpdateTip>
+                    <UpdateTip setMyTips={setMyTips}
+                    singleTip={singleTip}/>
                     <button
                       id={`edit-${tip._id}`}
                       className="btn btn-sm btn-outline btn-info"
-                      onClick={()=>{getId(tip._id); document.getElementById('my_modal_4').showModal();}}
+                      onClick={() => {
+                        getTableData(tip._id);
+                        document.getElementById("my_modal_4").showModal();
+                      }}
                     >
                       <FaEdit />
                     </button>
-                    
+
                     <Tooltip
                       anchorSelect={`#edit-${tip._id}`}
                       place="top"
