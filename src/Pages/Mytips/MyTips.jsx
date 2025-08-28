@@ -1,32 +1,69 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useLoaderData } from "react-router";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
-import { BsVectorPen } from "react-icons/bs";
+import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 const MyTips = () => {
   const { user } = use(AuthContext);
   const allTipsData = useLoaderData();
-  const Name = user?.displayName;
+  const email = user?.email;
 
-  const allMyTips = allTipsData.filter((tip) => tip.name === Name);
+   const [myTips, setMyTips] = useState([]);
 
-  console.log(allMyTips);
+       console.log(myTips);
+         useEffect(() => {
+    if (user?.email) {
+      const initialMyTips = allTipsData.filter((tip) => tip.email === email);
 
+      setMyTips(initialMyTips);
+    }
+  }, [user, allTipsData]);
+
+
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/alltips/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if(data.deletedCount){
+                 
+      const remainingTips = myTips.filter(tip=> tip._id !== id)
+                setMyTips(remainingTips);
+
+                          Swal.fire({
+              title: "Deleted Successfully!",
+              text: "Your tip has been deleted.",
+              icon: "success",
+            });
+            }
   
+          });
+      }
+    });
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16 mt-10">
-        
-
-
       <h1 className="text-3xl font-bold text-center mb-10 big">
-        
         My Garden Tips
       </h1>
 
-      {allMyTips.length === 0 ? (
+      {myTips.length === 0 ? (
         <p className="text-center text-gray-500">
           You haven't shared any tips yet.
         </p>
@@ -44,13 +81,13 @@ const MyTips = () => {
               </tr>
             </thead>
             <tbody>
-              {allMyTips.map((tip, index) => (
+              {myTips.map((tip, index) => (
                 <tr key={tip._id}>
                   <td>{index + 1}</td>
 
-                  {/* Image column */}
+                 
                   <td>
-                    <div className="w-24 h-20 rounded overflow-hidden">
+                    <div className="w-24 h-18 rounded overflow-hidden">
                       <img
                         src={tip.photo}
                         alt={tip.title}
@@ -78,7 +115,7 @@ const MyTips = () => {
                   </td>
                   <td className=" ">
                     <button
-                       id={`edit-${tip._id}`}
+                      id={`edit-${tip._id}`}
                       className="btn btn-sm btn-outline btn-info"
                       onClick={() => navigate(`/update/${tip._id}`)}
                     >
@@ -91,9 +128,11 @@ const MyTips = () => {
                     >
                       Edit
                     </Tooltip>
-                    <button 
-                     id={`delete-${tip._id}`}
-                    className="btn btn-sm btn-outline btn-error ml-3">
+                    <button
+                      onClick={() => handleDelete(tip?._id)}
+                      id={`delete-${tip._id}`}
+                      className="btn btn-sm btn-outline btn-error ml-3"
+                    >
                       <FaTrashAlt />
                     </button>
                     <Tooltip

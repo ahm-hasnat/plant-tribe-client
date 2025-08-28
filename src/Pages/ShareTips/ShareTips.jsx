@@ -83,7 +83,7 @@ const ShareTips = () => {
             <span className="label-text big">Difficulty</span>
           </label>
           <select name="difficulty" className="select select-bordered w-full mt-1" required>
-            <option disabled selected>Choose difficulty</option>
+            <option value="" disabled selected>Choose difficulty</option>
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
@@ -123,7 +123,7 @@ const ShareTips = () => {
             <span className="label-text big">Category</span>
           </label>
           <select name="category" className="select select-bordered w-full mt-1" required>
-            <option  disabled selected>Choose category</option>
+            <option value=""  disabled selected>Choose category</option>
             <option>Composting</option>
             <option>Plant Care</option>
             <option>Vertical Gardening</option>
@@ -138,7 +138,7 @@ const ShareTips = () => {
             <span className="label-text big">Availability</span>
           </label>
           <select name="availability" className="select select-bordered w-full mt-1" required>
-            <option disabled selected>Choose availability</option>
+            <option value="" disabled selected>Choose availability</option>
             <option>Public</option>
             <option>Hidden</option>
           </select>
