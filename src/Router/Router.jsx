@@ -9,6 +9,7 @@ import ForgetPass from '../Pages/Auth/ForgetPass';
 import ShareTips from '../Pages/ShareTips/ShareTips';
 import BrowseTips from '../Pages/BrowseTips/BrowseTips';
 import TipDetails from '../Pages/TipDetails/TipDetails';
+import MyTips from '../Pages/Mytips/MyTips';
 
 
 export const router = createBrowserRouter([
@@ -39,7 +40,9 @@ export const router = createBrowserRouter([
           },
           {
             path : '/mytips',
-            
+            element:<MyTips></MyTips>,
+            loader: ()=> fetch('http://localhost:3000/alltips')
+
           }
 
    ]
