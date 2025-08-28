@@ -7,6 +7,7 @@ import {
   FaStar,
   FaCalendarAlt,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const ExploreGardeners = () => {
  const allGardeners = useLoaderData();
@@ -14,6 +15,9 @@ const ExploreGardeners = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 mt-12">
+         <Helmet>
+                <title>Plant Tribe - Explore gardener</title>
+            </Helmet>
       <h1 className="text-4xl font-bold text-center mb-4 big">
         Meet Our Gardeners
       </h1>

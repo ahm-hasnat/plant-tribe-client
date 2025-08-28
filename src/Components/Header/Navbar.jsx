@@ -62,16 +62,19 @@ const Navbar = () => {
                   Browse Tips
                 </NavLink>
               </li>
-              <li>
+            
+            {user && (  <li>
                 <NavLink to="/share" className={activeLink}>
                   Share a garden Tips
                 </NavLink>
               </li>
-              <li>
+)}
+           {user && (   <li>
                 <NavLink to="/mytips" className={activeLink}>
                   My Tips
                 </NavLink>
               </li>
+           )}
             </ul>
           </div>
           <img
@@ -93,21 +96,26 @@ const Navbar = () => {
                 Explore Gardeners
               </NavLink>
             </li>
+            
+            
             <li>
               <NavLink to="/browsetips" className={activeLink}>
                 Browse Tips
               </NavLink>
             </li>
+           {user && (
             <li>
               <NavLink to="/sharetips" className={activeLink}>
                 Share a garden Tips
               </NavLink>
-            </li>
+             
+            </li> )}
+            {user &&(
             <li>
               <NavLink to="/mytips" className={activeLink}>
                 My Tips
               </NavLink>
-            </li>
+            </li>)}
           </ul>
         </div>
         <div className="navbar-end">

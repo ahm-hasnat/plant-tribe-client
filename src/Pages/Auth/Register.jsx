@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -84,6 +85,9 @@ const Register = () => {
 
   return (
     <div className="hero">
+       <Helmet>
+                <title>Plant Tribe - register</title>
+            </Helmet>
       <div className="hero-content flex-col lg:flex">
         <div className="text-center lg:text-left">
           <h1 className="text-3xl font-bold mb-3 mt-4">Register now!</h1>

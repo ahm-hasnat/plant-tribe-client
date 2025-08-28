@@ -2,6 +2,7 @@ import React from "react";
 import { FaHeart, FaThumbsUp } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 import { GiVineLeaf } from "react-icons/gi";
+import { Helmet } from "react-helmet-async";
 
 const TipDetails = () => {
   const { id } = useParams();
@@ -31,7 +32,9 @@ Explore  Garden Tip
 
     <div className=" bg-base-200 p-10
     rounded-lg shadow-md relative">
-        
+         <Helmet>
+                <title>Plant-Tribe-Tip Details</title>
+            </Helmet>
       <div className="flex flex-col  gap-10 ">
         {/* Image */}
         <div className="rounded-xl overflow-hidden ">

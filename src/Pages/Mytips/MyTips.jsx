@@ -6,6 +6,7 @@ import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import UpdateTip from "../../Components/UpdateTip/UpdateTip";
+import { Helmet } from "react-helmet-async";
 
 const MyTips = () => {
   const { user } = use(AuthContext);
@@ -70,6 +71,9 @@ const MyTips = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16 mt-10">
+         <Helmet>
+                <title>Plant-Tribe-My tip</title>
+            </Helmet>
       <h1 className="text-3xl font-bold text-center mb-10 big">
         My Garden Tips
       </h1>

@@ -8,6 +8,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 
 const Banner = () => {
+  
   useEffect(() => {
     new Swiper('.swiper', {
       direction: 'horizontal',

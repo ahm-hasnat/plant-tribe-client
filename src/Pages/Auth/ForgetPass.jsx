@@ -1,9 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const ForgetPass = () => {
     return (
          <div className="hero bg-base-100 mt-24">
-            
+             <Helmet>
+                <title>Plant Tribe - reset password</title>
+            </Helmet>
           <div className="hero-content flex-col lg:flex">
             <div className="text-center lg:text-left">
               <h1 className="text-3xl mt-5 font-bold mb-5">Reset Password</h1>

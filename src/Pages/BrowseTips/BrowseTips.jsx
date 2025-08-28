@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import { FaEye } from "react-icons/fa";
 import  { Tooltip } from 'react-tooltip';
+import { Helmet } from "react-helmet-async";
 
 const BrowseTips = () => {
   const publicTips = useLoaderData();
@@ -12,6 +13,9 @@ const BrowseTips = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-20 px-4 py-10 mb-10">
+       <Helmet>
+                <title>Plant Tribe - browse tip</title>
+            </Helmet>
       <h1 className="text-3xl font-bold mb-8 big text-center">
         Browse Garden Tips
       </h1>
@@ -42,7 +46,7 @@ const BrowseTips = () => {
                 </td>
                 <td className="font-semibold text-md big">{tip.title}</td>
                 <td>
-                  <span className="badge badge-outline badge-accent px-3 py-1 text-sm">
+                  <span className="w-36 badge badge-outline badge-accent px-3 py-1 text-sm">
                     {tip.category}
                   </span>
                 </td>

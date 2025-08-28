@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const ShareTips = () => {
 
@@ -41,6 +42,9 @@ const ShareTips = () => {
     }
     return (
          <div className=" max-w-3xl mx-auto p-8 bgt rounded-lg shadow-md my-10 mt-24">
+           <Helmet>
+                <title>Plant-Tribe-share-tip</title>
+            </Helmet>
             <ToastContainer></ToastContainer>
             <div className='flex gap-1 items-center justify-center '>
                 <img className='w-16 mb-6' src="https://i.ibb.co.com/JjxGLYWY/nature.png" alt="" />
