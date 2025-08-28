@@ -86,10 +86,10 @@ const {user,signout} = use(AuthContext);
               <NavLink to="/explore" className={activeLink}>Explore Gardeners</NavLink>
               </li>
               <li>
-             <NavLink to="/tips" className={activeLink}>Browse Tips</NavLink>
+             <NavLink to="/browsetips" className={activeLink}>Browse Tips</NavLink>
               </li>
               <li>
-              <NavLink to="/share" className={activeLink}>Share a garden Tips</NavLink>
+              <NavLink to="/sharetips" className={activeLink}>Share a garden Tips</NavLink>
             </li>
               <li>
              <NavLink to="/mytips" className={activeLink}>My Tips</NavLink>

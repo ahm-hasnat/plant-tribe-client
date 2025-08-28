@@ -19,6 +19,9 @@
   .big{
     color:#323b40 ;
 }
+ .bgt{
+  background-color: #c1e4dc21;
+ }
 }
 
 [data-theme="dark"] {

@@ -7,6 +7,8 @@ import Signin from '../Pages/Auth/Signin';
 import Register from '../Pages/Auth/Register';
 import ForgetPass from '../Pages/Auth/ForgetPass';
 import ShareTips from '../Pages/ShareTips/ShareTips';
+import BrowseTips from '../Pages/BrowseTips/BrowseTips';
+import TipDetails from '../Pages/TipDetails/TipDetails';
 
 
 export const router = createBrowserRouter([
@@ -24,6 +26,20 @@ export const router = createBrowserRouter([
           {
             element: <ShareTips></ShareTips>,
             path :'/sharetips',
+          },
+          {
+            path : '/browsetips',
+            element: <BrowseTips></BrowseTips>,
+            loader: ()=> fetch('http://localhost:3000/publictips')
+          },
+          {
+            path : '/details/:id',
+            element : <TipDetails></TipDetails>,
+            loader: ()=> fetch('http://localhost:3000/publictips')
+          },
+          {
+            path : '/mytips',
+            
           }
 
    ]
