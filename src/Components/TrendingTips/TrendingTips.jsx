@@ -36,17 +36,17 @@ const TrendingTips = () => {
 
               <div>
                 <h3 className="text-lg misti md:text-xl font-semibold
-                 text-green-800 mb-1">
+                 big mb-1">
                   {tip.title}
                 </h3>
-                <p className="text-gray-700 sada text-sm md:text-base 
+                <p className="small sada text-sm md:text-base 
                 leading-relaxed mb-2">
                   {tip.description}
                 </p>
                 <div className="flex items-center flex-wrap gap-4 text-xs
                  text-gray-500">
                   <span className="flex items-center gap-1 sada">
-                    <FaUserAlt className="text-green-500 " /> {tip.author}
+                    <FaUserAlt className="text-green-600 " /> {tip.author}
                   </span>
                   <span className="flex items-center misti gap-1">
                     <FaHeart className="text-red-400 " /> {tip.likes} likes

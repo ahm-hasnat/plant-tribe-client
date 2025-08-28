@@ -10,6 +10,7 @@ import ShareTips from '../Pages/ShareTips/ShareTips';
 import BrowseTips from '../Pages/BrowseTips/BrowseTips';
 import TipDetails from '../Pages/TipDetails/TipDetails';
 import MyTips from '../Pages/Mytips/MyTips';
+import ExploreGardeners from '../Components/Gardeners/ExploreGardeners';
 
 
 export const router = createBrowserRouter([
@@ -42,6 +43,12 @@ export const router = createBrowserRouter([
             path : '/mytips',
             element:<MyTips></MyTips>,
             loader: ()=> fetch('http://localhost:3000/alltips')
+
+          },
+          {
+            path: '/explore',
+            element : <ExploreGardeners></ExploreGardeners>,
+            loader : ()=> fetch('http://localhost:3000/allgardeners')
 
           }
 
