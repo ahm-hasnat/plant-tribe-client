@@ -1,30 +1,24 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import Toggle from "../ToggleTheme/Toggle";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-const {user,signout} = use(AuthContext);
- const handleSignOut = () =>{
-   
-  signout()
-  .then(()=>{
-              Swal.fire({
-                 title: "Logged Out!",
-                 text: "User Logged Out.Stay connected!.",
-                 icon: "info",
-                  
-               });
-        navigate('/auth/login')
-        })
+  const { user, signout } = use(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    signout().then(() => {
+      Swal.fire({
+        title: "Logged Out!",
+        text: "User Logged Out.Stay connected!.",
+        icon: "info",
+      });
+      navigate("/auth/login");
+    });
+  };
 
-
-
-      }
-
-    const activeLink = ({ isActive }) =>
-  isActive ? "underline small" : "small";
+  const activeLink = ({ isActive }) => (isActive ? "underline small" : "small");
 
   return (
     <div>
@@ -54,20 +48,30 @@ const {user,signout} = use(AuthContext);
          rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-              <NavLink to="/" className={activeLink}>Home</NavLink>
+                <NavLink to="/" className={activeLink}>
+                  Home
+                </NavLink>
               </li>
               <li>
-              <NavLink to="/explore" className={activeLink}>Explore Gardeners</NavLink>
+                <NavLink to="/explore" className={activeLink}>
+                  Explore Gardeners
+                </NavLink>
               </li>
               <li>
-             <NavLink to="/tips" className={activeLink}>Browse Tips</NavLink>
+                <NavLink to="/tips" className={activeLink}>
+                  Browse Tips
+                </NavLink>
               </li>
               <li>
-              <NavLink to="/share" className={activeLink}>Share a garden Tips</NavLink>
-            </li>
+                <NavLink to="/share" className={activeLink}>
+                  Share a garden Tips
+                </NavLink>
+              </li>
               <li>
-             <NavLink to="/mytips" className={activeLink}>My Tips</NavLink>
-            </li>
+                <NavLink to="/mytips" className={activeLink}>
+                  My Tips
+                </NavLink>
+              </li>
             </ul>
           </div>
           <img
@@ -79,36 +83,62 @@ const {user,signout} = use(AuthContext);
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-             <li>
-              <NavLink to="/" className={activeLink}>Home</NavLink>
-              </li>
-              <li>
-              <NavLink to="/explore" className={activeLink}>Explore Gardeners</NavLink>
-              </li>
-              <li>
-             <NavLink to="/browsetips" className={activeLink}>Browse Tips</NavLink>
-              </li>
-              <li>
-              <NavLink to="/sharetips" className={activeLink}>Share a garden Tips</NavLink>
+            <li>
+              <NavLink to="/" className={activeLink}>
+                Home
+              </NavLink>
             </li>
-              <li>
-             <NavLink to="/mytips" className={activeLink}>My Tips</NavLink>
+            <li>
+              <NavLink to="/explore" className={activeLink}>
+                Explore Gardeners
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/browsetips" className={activeLink}>
+                Browse Tips
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/sharetips" className={activeLink}>
+                Share a garden Tips
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/mytips" className={activeLink}>
+                My Tips
+              </NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-         
-
-         {user ? <button onClick={handleSignOut}  className="btn bg-[#204e51] hover:bg-[#f26b5e]
-           text-white rounded ml-5 mr-5"> Sign Out</button>
-          :
-          <Link to='/signin'
-            className="btn bg-[#204e51] hover:bg-[#f26b5e]
+          
+         { user && (
+          <div className="avatar avatar-online">
+            <div className="w-12 rounded-full">
+              <img title={user?.displayName} src={user?.photoURL} />
+            </div>
+          </div>
+         )
+        
+        }
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="btn bg-[#204e51] hover:bg-[#f26b5e]
            text-white rounded ml-5 mr-5"
-          >
-            Sign In
-          </Link>
-}
+            >
+              
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/signin"
+              className="btn bg-[#204e51] hover:bg-[#f26b5e]
+           text-white rounded ml-5 mr-5"
+            >
+              Sign In
+            </Link>
+          )}
           <Toggle></Toggle>
         </div>
       </div>

@@ -1,73 +1,66 @@
-import React, { use } from 'react';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { use } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 
-const ShareTips = () => {
 
+const UpdateTip = ({myTips}) => {
     const notify = () => toast("Tip submitted Successfully!");
-  
-    const {user} = use(AuthContext);
-    const handleSubmitTips = e =>{
-         e.preventDefault();
+const {user} = use(AuthContext);
+ console.log(myTips);
+const handleUpdate = (e) =>{
+    e.preventDefault();
     const form = e.target;
     const name = user?.displayName;
     const email = user?.email;
     const formData = new FormData(form);
     const newData = Object.fromEntries(formData.entries());
      
-    const newTips = {...newData,name,email};
+    const updatedTips = {...newData,name,email};
     
 
-    console.log(newTips);
-    // const {title,photo,plantType,difficulty,description,
-    // category,availability} = tipsData;
+    console.log(updatedTips);
+}
 
-      fetch('http://localhost:3000/tipsdata',{
-        method : 'POST',
-        headers : {
-            'content-type' : 'application/json'
-        },
-        body : JSON.stringify(newTips)
-      })
-      .then(res=>res.json())
-      .then(data=> {
-         if(data.insertedId){
-
-            notify();
-            form.reset();
-         }
-      })
-
-    }
     return (
-         <div className=" max-w-3xl mx-auto p-8 bgt rounded-lg shadow-md my-10 mt-24">
-            <ToastContainer></ToastContainer>
-            <div className='flex gap-1 items-center justify-center '>
-                <img className='w-16 mb-6' src="https://i.ibb.co.com/JjxGLYWY/nature.png" alt="" />
-                <h2 className="text-3xl font-bold mb-6 text-center big">Share a Garden Tip</h2>
-            </div>
-      
-      <form onSubmit={handleSubmitTips} className="space-y-4 ">
+        
+<div>
 
+<dialog id="my_modal_4" className="modal ">
+    
+  <div className="modal-box w-11/12 max-w-3xl max-h-[95vh] ">
+  
+    <ToastContainer/>
+     <div className=" max-w-full px-4 pb-4  mx-auto  rounded-lg shadow-md bgt ">
        
+     <div className='flex gap-1 items-center justify-center '>
+     <img className='w-16 ' src="https://i.ibb.co.com/2YqJc0VT/cherry-blossom.png" alt="" />
+      <h2 className="text-3xl font-bold  text-center big">Update your Garden Tip</h2>
+       </div>
+      
+    <form onSubmit={handleUpdate}  className="space-y-4 ">
+
+      
         <div>
-          <label className="label">
-            <span className="label-text big">Title</span>
+      <label className="label">
+           <span className="label-text big">Title</span>
           </label>
-          <input
+        <input
+           defaultValue={myTips?.name}
             type="text"
-            name="title"
+          name="title"
             placeholder="e.g. How you Grow Tomatoes Indoors"
             className="input input-bordered w-full mt-1"
             required
           />
         </div>
 
+      
         <div>
           <label className="label">
             <span className="label-text big">Plant Type </span>
           </label>
           <input
+           defaultValue={myTips.plantType}
             type="text"
             name="plantType"
             placeholder="e.g. Tomatoes"
@@ -76,6 +69,7 @@ const ShareTips = () => {
           />
         </div>
 
+       
         <div>
           <label className="label">
             <span className="label-text big">Difficulty</span>
@@ -88,7 +82,7 @@ const ShareTips = () => {
           </select>
         </div>
 
-      
+        
         <div>
           <label className="label">
             <span className="label-text big">Description</span>
@@ -102,7 +96,7 @@ const ShareTips = () => {
           ></textarea>
         </div>
 
-      
+        
         <div>
           <label className="label">
             <span className="label-text big">Image URL</span>
@@ -115,7 +109,7 @@ const ShareTips = () => {
           />
         </div>
 
-        
+       
         <div>
           <label className="label">
             <span className="label-text big">Category</span>
@@ -170,19 +164,30 @@ const ShareTips = () => {
           </div>
         </div>
 
-       
+        
         <div className="text-center">
           <button type="submit" className="btn bg-[#204e51] hover:bg-[#f26b5e]
            text-white rounded mt-4">
-            Share Tip
+            Submit
           </button>
         </div>
       </form>
     </div>
+  <div className="modal-action">
+      <form method="dialog">
+      
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+
+</dialog>
+</div>
+
     );
 };
 
-export default ShareTips;
+export default UpdateTip;
 
-
-
+<button className="btn" >
+    open modal</button>

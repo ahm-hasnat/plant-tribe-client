@@ -5,6 +5,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
+import UpdateTip from "../../Components/UpdateTip/UpdateTip";
 
 const MyTips = () => {
   const { user } = use(AuthContext);
@@ -114,13 +115,15 @@ const MyTips = () => {
                     </span>
                   </td>
                   <td className=" ">
+                    <UpdateTip myTips={myTips}></UpdateTip>
                     <button
                       id={`edit-${tip._id}`}
                       className="btn btn-sm btn-outline btn-info"
-                      onClick={() => navigate(`/update/${tip._id}`)}
+                      onClick={()=>{getId(tip._id); document.getElementById('my_modal_4').showModal();}}
                     >
                       <FaEdit />
                     </button>
+                    
                     <Tooltip
                       anchorSelect={`#edit-${tip._id}`}
                       place="top"
