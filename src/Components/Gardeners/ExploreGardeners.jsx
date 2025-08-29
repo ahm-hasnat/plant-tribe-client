@@ -81,7 +81,7 @@ const ExploreGardeners = () => {
                 <div className="card-actions justify-between items-center">
                   <span
                     className={`badge ${
-                      status === "active" ? "badge-success" : "badge-error"
+                      i.status === "active" ? "badge-success" : "badge-error"
                     } uppercase font-bold`}
                   >
                     {i.status}

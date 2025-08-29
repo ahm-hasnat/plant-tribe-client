@@ -12,7 +12,7 @@ const BrowseTips = () => {
   const visibleTips = showAll ? publicTips : publicTips.slice(0, 4);
 
   return (
-    <div className="max-w-6xl mx-auto mt-20 px-4 py-10 mb-10">
+    <div className="max-w-6xl mx-auto mt-16 px-4 py-10 mb-10">
        <Helmet>
                 <title>Plant Tribe - browse tip</title>
             </Helmet>

@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import Toggle from "../ToggleTheme/Toggle";
 import Swal from "sweetalert2";
@@ -6,12 +6,14 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user, signout } = use(AuthContext);
+  const [showSignOutBtn, setShowSignOutBtn] = useState(false);
   // console.log(user);
   const handleSignOut = () => {
+    setShowSignOutBtn(false);
     signout().then(() => {
       Swal.fire({
         title: "Logged Out!",
-        text: "User Logged Out.Stay connected!.",
+        text: "User Logged Out!.",
         icon: "info",
       });
       navigate("/auth/login");
@@ -22,7 +24,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm px-5 fixed z-50 top-0 ">
+      <div className="navbar bg-base-100 shadow-sm px-6 fixed z-50 top-0 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,13 +35,13 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
+                
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
@@ -62,19 +64,21 @@ const Navbar = () => {
                   Browse Tips
                 </NavLink>
               </li>
-            
-            {user && (  <li>
-                <NavLink to="/share" className={activeLink}>
-                  Share a garden Tips
-                </NavLink>
-              </li>
-)}
-           {user && (   <li>
-                <NavLink to="/mytips" className={activeLink}>
-                  My Tips
-                </NavLink>
-              </li>
-           )}
+
+              {user && (
+                <li>
+                  <NavLink to="/share" className={activeLink}>
+                    Share a garden Tips
+                  </NavLink>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <NavLink to="/mytips" className={activeLink}>
+                    My Tips
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
           <img
@@ -96,50 +100,63 @@ const Navbar = () => {
                 Explore Gardeners
               </NavLink>
             </li>
-            
-            
+
             <li>
               <NavLink to="/browsetips" className={activeLink}>
                 Browse Tips
               </NavLink>
             </li>
-           {user && (
-            <li>
-              <NavLink to="/sharetips" className={activeLink}>
-                Share a garden Tips
-              </NavLink>
-             
-            </li> )}
-            {user &&(
-            <li>
-              <NavLink to="/mytips" className={activeLink}>
-                My Tips
-              </NavLink>
-            </li>)}
-           
+            {user && (
+              <li>
+                <NavLink to="/sharetips" className={activeLink}>
+                  Share a garden Tips
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink to="/mytips" className={activeLink}>
+                  My Tips
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
-          
-         { user && (
-          <div className="avatar avatar-online ml-24">
-            <div className="w-12 rounded-full">
-              <img title={user?.displayName} src={user?.photoURL} />
-            </div>
-          </div>
-         )
-        
-        }
-          {user ? (
-            <button
-              onClick={handleSignOut}
-              className="btn bg-[#204e51] hover:bg-[#f26b5e]
-           text-white rounded ml-5 mr-5"
+          {user && (
+            <div
+              onClick={() => setShowSignOutBtn((show) => !show)}
+              className="avatar 
+          avatar-online mr-5"
             >
-              
-              Sign Out
-            </button>
-          ) : (
+              <div className="w-12 rounded-full">
+                <img title={user?.displayName} src={user?.photoURL} />
+              </div>
+            </div>
+          )}
+          {user && (
+            <div
+              className={`
+      absolute right-16 top-full mt-2
+      transition-all duration-500 ease-out
+      transform
+      ${
+        showSignOutBtn
+          ? "opacity-100 translate-y-0 delay-150"
+          : "opacity-0 translate-y-5 pointer-events-none"
+      }
+    `}
+            >
+              <button
+                onClick={handleSignOut}
+                className="btn bg-[#204e51] hover:bg-[#f26b5e] text-white rounded"
+              >
+                Sign Out
+              </button>
+            </div>
+          )}
+
+          {!user && (
             <Link
               to="/auth/signin"
               className="btn bg-[#204e51] hover:bg-[#f26b5e]

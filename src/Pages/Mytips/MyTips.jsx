@@ -33,11 +33,11 @@ const MyTips = () => {
     console.log(singleTip);
   };
   const handleTipUpdate = (updatedTip) => {
-  const updatedList = myTips.map(tip =>
-    tip._id === updatedTip._id ? updatedTip : tip
-  );
-  setMyTips(updatedList);
-};
+    const updatedList = myTips.map((tip) =>
+      tip._id === updatedTip._id ? updatedTip : tip
+    );
+    setMyTips(updatedList);
+  };
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -62,6 +62,8 @@ const MyTips = () => {
                 title: "Deleted Successfully!",
                 text: "Your tip has been deleted.",
                 icon: "success",
+                showConfirmButton: false,
+                timer: 1500,
               });
             }
           });
@@ -71,9 +73,9 @@ const MyTips = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16 mt-10">
-         <Helmet>
-                <title>Plant-Tribe-My tip</title>
-            </Helmet>
+      <Helmet>
+        <title>Plant-Tribe-My tip</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-center mb-10 big">
         My Garden Tips
       </h1>
@@ -128,8 +130,7 @@ const MyTips = () => {
                     </span>
                   </td>
                   <td className=" ">
-                    <UpdateTip setMyTips={setMyTips}
-                    singleTip={singleTip}/>
+                    <UpdateTip setMyTips={setMyTips} singleTip={singleTip} />
                     <button
                       id={`edit-${tip._id}`}
                       className="btn btn-sm btn-outline btn-info"
