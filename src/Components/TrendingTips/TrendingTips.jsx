@@ -49,7 +49,7 @@ const TrendingTips = () => {
                     <FaUserAlt className="text-green-600 " /> {tip.author}
                   </span>
                   <span className="flex items-center misti gap-1">
-                    <FaHeart className="text-red-400 " /> {tip.likes} likes
+                    <FaHeart className="text-red-400 " /> {tip.likes||0} likes
                   </span>
                   <span className="flex sada items-center gap-1">
                     <FaTags className="text-yellow-600" /> {tip.category}

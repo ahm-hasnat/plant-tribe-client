@@ -39,7 +39,7 @@ const FeaturedGardeners = () => {
             <div className="mt-3 text-center text-sm text-gray-700">
               <p className="font-bold mr-2 text-center sada">
                 Specialty:
-                <span className="badge badge-outline font-light ml-3 badge-success badge-sm">
+                <span className="badge badge-outline font-light ml-3 badge-info badge-sm">
                   {gardener.specialty}
                 </span>
               </p>
