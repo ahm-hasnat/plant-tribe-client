@@ -14,7 +14,7 @@ const BrowseTips = () => {
   return (
     <div className="max-w-6xl mx-auto mt-16 px-4 py-10 mb-10">
        <Helmet>
-                <title>Plant Tribe - browse tip</title>
+                <title>Plant Tribe - Browse tip</title>
             </Helmet>
       <h1 className="text-3xl font-bold mb-8 big text-center">
         Browse Garden Tips

@@ -80,7 +80,7 @@ const TipDetails = () => {
     rounded-lg shadow-md relative"
       >
         <Helmet>
-          <title>Plant-Tribe-Tip Details</title>
+          <title>Plant Tribe-Tip Details</title>
         </Helmet>
         <div className="flex flex-col  gap-10 ">
           <div className="rounded-xl overflow-hidden ">

@@ -2,124 +2,124 @@ import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
-
 const Register = () => {
-    const {createUser,setUser} = use(AuthContext);
-    const [passError, setPassError] = useState('')
+  const { createUser, setUser } = use(AuthContext);
+  const [passError, setPassError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
 
-  const handleRegister = e =>{
-  
+  const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
-    
-    const {name,photo,email,password} = userData;
+
+    const { name, photo, email, password } = userData;
     console.log(name);
-    
-      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);
-     const hasLength = password.length >= 8;
+    const hasLength = password.length >= 8;
 
-      if (!hasLength && !hasUpper && !hasLower && !hasSpecial) {
-        setPassError("Password must be at least 8 characters, include at least one uppercase,one lowercase letter and one special character.");
+    if (!hasLength && !hasUpper && !hasLower && !hasSpecial) {
+      setPassError(
+        "Password must be at least 8 characters, include at least one uppercase,one lowercase letter and one special character."
+      );
       return;
-      }
-       else if (!hasLength) {
-     setPassError("Password must be at least 8 characters.");
-    return;
-      }
-       else if (!hasUpper) {
-    setPassError("Include at least one uppercase letter.");
+    } else if (!hasLength) {
+      setPassError("Password must be at least 8 characters.");
       return;
-    } 
-    else if (!hasLower) {
-       setPassError("Include at least one lowercase letter.");
+    } else if (!hasUpper) {
+      setPassError("Include at least one uppercase letter.");
       return;
-    } 
-     else if (!hasSpecial) {
-  setPassError("Include at least one special character.");
-  return;
+    } else if (!hasLower) {
+      setPassError("Include at least one lowercase letter.");
+      return;
+    } else if (!hasSpecial) {
+      setPassError("Include at least one special character.");
+      return;
+    } else {
+      setPassError("");
     }
-    else {
-       setPassError(""); 
-  } 
-    
-  createUser(email,password)
-  .then((result) =>{
-    console.log(result);
-    const user = result.user;
 
-   setUser(user);
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        const user = result.user;
+
+        setUser(user);
 
         Swal.fire({
-    title: "Success!",
-    text: "Registration completed.!!",
-    icon: "success",
-  });
-  navigate("/");
-  } )
+          title: "Success!",
+          text: "Registration completed.!!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
 
-
- 
-  .catch((error) => {
-    if (error.code === 'auth/email-already-in-use') {
-      Swal.fire({
-        title: "User already exists!",
-        icon: "warning",
-        text: "Please log in!",
-        draggable: true,
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          Swal.fire({
+            title: "User already exists!",
+            icon: "warning",
+            text: "Please log in!",
+            draggable: true,
+          });
+          navigate("/signin");
+        }
       });
-        navigate("/signin");
-    }
-    })
-   
-
-  }
+  };
 
   return (
-    <div className="hero">
-       <Helmet>
-                <title>Plant Tribe - register</title>
-            </Helmet>
-      <div className="hero-content flex-col lg:flex">
+    <div className="hero mt-12">
+      <Helmet>
+        <title>Plant Tribe - Register</title>
+      </Helmet>
+      <div className="hero-content flex-col lg:flex ">
         <div className="text-center lg:text-left">
           <h1 className="text-3xl font-bold mb-3 mt-4">Register now!</h1>
         </div>
         <div
-          className="card  w-sm h-full shrink-0 
+          className="card   h-full  
     shadow-2xl border border-gray-200"
         >
-          <div className="card-body">
-            <form onSubmit={handleRegister} className="form ">
+          <div className="card-body w-md ">
+            <form onSubmit={handleRegister} className="form w-full">
               <label className="label">Name</label>
+              <br />
               <input
                 type="text"
                 name="name"
-                className="input mb-1 mt-2"
+                className="input mb-1 mt-2 w-full"
                 placeholder="name"
               />
+              <br />
               <label className="label">Email</label>
+              <br />
               <input
                 type="email"
                 name="email"
-                className="input mb-1 mt-2"
+                className="input mb-1 mt-2 w-full"
                 placeholder="Email"
               />
+              <br />
               <label className="label">Photo URL</label>
+              <br />
               <input
                 type="link"
                 name="photo"
-                className="input mb-1 mt-2"
+                className="input mb-1 mt-2 w-full"
                 placeholder="photo"
               />
+              <br />
               <label className="label mt-3">Password</label>
+              <br />
               <div className="relative">
                 <input
                   type={showPass ? "text" : "password"}
@@ -143,23 +143,28 @@ const Register = () => {
                 </button>
               </div>
               <div className="flex items-center gap-2 mt-1">
-                <input type="checkbox" defaultChecked className="checkbox checkbox-sm " required/>
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="checkbox checkbox-sm "
+                  required
+                />
                 <p className="text-xs">Accept terms & conditions</p>
               </div>
               <button
                 type="submit"
                 className="btn btn-neutral w-full mt-4 mb-2 "
               >
-               Register
+                Register
               </button>
               <p>
                 Already have an account?{" "}
                 <span
-                  onClick={() => navigate("/signin")}
+                  onClick={() => navigate("/auth/signin")}
                   className="text-blue-700 
           font-bold hover:underline cursor-pointer text-xs"
                 >
-                 Signin
+                  Signin
                 </span>
               </p>
             </form>

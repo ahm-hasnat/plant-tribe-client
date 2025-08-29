@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className="bg-base-100">
        <Helmet>
-                <title>Plant-Tribe-home</title>
+                <title>Plant Tribe-Home</title>
             </Helmet>
       <section className="z-0 top-10">
         <Banner></Banner>

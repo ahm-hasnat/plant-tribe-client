@@ -5,7 +5,7 @@ import Errorpage from "../Pages/ErrorPage/Errorpage";
 import Home from "../Pages/Home/Home";
 import Signin from "../Pages/Auth/Signin";
 import Register from "../Pages/Auth/Register";
-import ForgetPass from "../Pages/Auth/ForgetPass";
+
 import ShareTips from "../Pages/ShareTips/ShareTips";
 import BrowseTips from "../Pages/BrowseTips/BrowseTips";
 import TipDetails from "../Pages/TipDetails/TipDetails";
@@ -13,6 +13,7 @@ import MyTips from "../Pages/Mytips/MyTips";
 import ExploreGardeners from "../Components/Gardeners/ExploreGardeners";
 import PrivateRoute from "../AuthProvider/PrivateRoute";
 import Auth from "../Pages/Auth/Auth";
+import ResetPass from "../Pages/Auth/ResetPass";
 
 export const router = createBrowserRouter([
   {
@@ -81,7 +82,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/auth/forget",
-        element: <ForgetPass></ForgetPass>,
+        element: <ResetPass></ResetPass>,
       },
     
    ]

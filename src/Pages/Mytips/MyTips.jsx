@@ -74,7 +74,7 @@ const MyTips = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-16 mt-10">
       <Helmet>
-        <title>Plant-Tribe-My tip</title>
+        <title>Plant Tribe-My Tips</title>
       </Helmet>
       <h1 className="text-3xl font-bold text-center mb-10 big">
         My Garden Tips

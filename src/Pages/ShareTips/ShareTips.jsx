@@ -43,7 +43,7 @@ const ShareTips = () => {
     return (
          <div className=" max-w-3xl mx-auto p-8 bgt rounded-lg shadow-md my-10 mt-24">
            <Helmet>
-                <title>Plant-Tribe-share-tip</title>
+                <title>Plant Tribe-Share Tip</title>
             </Helmet>
             <ToastContainer></ToastContainer>
             <div className='flex gap-1 items-center justify-center '>
