@@ -118,9 +118,9 @@ const Signin = () => {
                Signin
               </button>
               <p>
-                Don't have an account?{" "}
+                Don't have an account?
                 <span
-                  onClick={() => navigate("/register")}
+                  onClick={() => navigate("/auth/register")}
                   className="text-blue-700 
           font-bold hover:underline cursor-pointer text-xs"
                 >

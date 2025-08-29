@@ -18,7 +18,7 @@ const ExploreGardeners = () => {
          <Helmet>
                 <title>Plant Tribe - Explore gardener</title>
             </Helmet>
-      <h1 className="text-4xl font-bold text-center mb-4 big">
+      <h1 className="text-3xl font-bold text-center mb-4 big">
         Meet Our Gardeners
       </h1>
       <p className="text-center small mb-12 max-w-3xl mx-auto">

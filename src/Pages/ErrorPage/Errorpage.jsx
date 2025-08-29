@@ -19,14 +19,14 @@ const ErrorPage = () => {
       <Helmet>
         <title>Error - Page Not Found</title>
       </Helmet>
-
+ <h1 className="text-3xl font-bold my-6">Oops! Something went wrong.</h1>
       <div className="w-full max-w-xs sm:max-w-md">
         {animationData && (
           <Lottie animationData={animationData} loop={true} />
         )}
       </div>
 
-      <h1 className="text-3xl font-bold mt-6">Oops! Something went wrong.</h1>
+     
       <p className="text-gray-600 mt-2 mb-6 text-center">
         Looks like this page flew away with the wind.
       </p>

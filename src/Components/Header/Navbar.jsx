@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm px-16 fixed z-50 top-0 ">
+      <div className="navbar bg-base-100 shadow-sm px-5 fixed z-50 top-0 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,7 +45,7 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content 
-         rounded-box z-1 mt-3 w-52 p-2 shadow"
+         rounded-box z-1 mt-3 w-52 p-2 shadow "
             >
               <li>
                 <NavLink to="/" className={activeLink}>
@@ -84,8 +84,8 @@ const Navbar = () => {
           />
           <a className="btn btn-ghost text-xl big">Plant Tribe</a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+        <div className="navbar-center hidden lg:flex ">
+          <ul className="menu menu-horizontal px-1 space-x-2">
             <li>
               <NavLink to="/" className={activeLink}>
                 Home
@@ -116,12 +116,13 @@ const Navbar = () => {
                 My Tips
               </NavLink>
             </li>)}
+           
           </ul>
         </div>
         <div className="navbar-end">
           
          { user && (
-          <div className="avatar avatar-online">
+          <div className="avatar avatar-online ml-24">
             <div className="w-12 rounded-full">
               <img title={user?.displayName} src={user?.photoURL} />
             </div>
@@ -140,7 +141,7 @@ const Navbar = () => {
             </button>
           ) : (
             <Link
-              to="/signin"
+              to="/auth/signin"
               className="btn bg-[#204e51] hover:bg-[#f26b5e]
            text-white rounded ml-5 mr-5"
             >

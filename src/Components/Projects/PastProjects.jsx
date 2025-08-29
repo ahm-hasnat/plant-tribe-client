@@ -1,7 +1,9 @@
 import React from 'react';
 import Service from '../Service/Service';
+import { useNavigate } from 'react-router';
 
 const PastProjects = () => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 text-center">
       <h1 className="text-4xl font-bold big mb-4">Our Past Projects</h1>
@@ -56,7 +58,7 @@ const PastProjects = () => {
 
      
       <div className="text-center mb-10">
-        <button className="btn bg-[#204e51] hover:bg-[#f26b5e] text-white 
+        <button  onClick={() => navigate('/errorpage')} className="btn bg-[#204e51] hover:bg-[#f26b5e] text-white 
         rounded px-8 py-3 transition">
           Explore More
         </button>

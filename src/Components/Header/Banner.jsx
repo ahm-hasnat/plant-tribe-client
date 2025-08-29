@@ -5,10 +5,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useNavigate } from 'react-router';
 
 
 const Banner = () => {
-  
+  const navigate = useNavigate();
   useEffect(() => {
     new Swiper('.swiper', {
       direction: 'horizontal',
@@ -64,7 +65,7 @@ const Banner = () => {
         <p className="mt-6 text-lg md:text-xl text-[#ffffffd8] drop-shadow-md">
           Join events, share tips, and discover local green spaces.
         </p>
-        <button className="mt-10 px-6 py-3 bg-[#204e51] hover:bg-[#f26b5e] text-white font-semibold rounded shadow-md transition duration-300">
+        <button  onClick={() => navigate('/errorpage')}  className="mt-10 px-6 py-3 bg-[#204e51] hover:bg-[#f26b5e] text-white font-semibold rounded shadow-md transition duration-300">
           Join the Community
         </button>
       </div>
