@@ -22,7 +22,8 @@ const handleFilter = e=>{
    
 }
   return (
-    <div className="max-w-6xl mx-auto mt-16 px-4 py-10 mb-10">
+    <div className=" kala pb-8">
+      <div className="max-w-6xl mx-auto mt-16 px-4 py-10 ">
       <Helmet>
         <title>Plant Tribe - Browse tip</title>
       </Helmet>
@@ -32,7 +33,7 @@ const handleFilter = e=>{
       </h1>
 
       <label className="block text-md font-medium big ">
-  Filter Tips:
+  Filter :
   
   <select onChange={handleFilter} defaultValue="All" 
   className="select select-xs  font-light ml-2  w-24">
@@ -129,6 +130,7 @@ const handleFilter = e=>{
       )
       
       }
+      </div>
     </div>
   );
 };

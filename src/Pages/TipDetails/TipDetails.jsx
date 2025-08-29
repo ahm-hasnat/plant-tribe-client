@@ -62,7 +62,8 @@ const TipDetails = () => {
     setTimeout(() => setLiked(false), 600);
   };
   return (
-    <div className="max-w-5xl mx-auto my-16 p-6">
+    <div className=" kala flex">
+        <div className="max-w-5xl mx-auto my-16 p-6">
       <h1
         className="text-3xl font-bold text-center mb-2 big flex justify-center
          items-center gap-2"
@@ -152,6 +153,7 @@ const TipDetails = () => {
           </button>
           <Toaster />
         </div>
+      </div>
       </div>
     </div>
   );

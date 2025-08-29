@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaTag, FaTags, FaUserAlt } from "react-icons/fa";
 import { FaHeart, FaSeedling } from "react-icons/fa6";
+import { GiPlantSeed } from "react-icons/gi";
 
 const TrendingTips = () => {
   const [tips, setTips] = useState([]);
@@ -32,7 +33,7 @@ const TrendingTips = () => {
         {tips.map((tip, index) => (
           <li key={index} className="relative pl-6 border-l-4 border-green-200">
             <div className="flex items-start gap-6">
-              <FaSeedling className="text-green-700 text-xl mt-1" />
+              <GiPlantSeed className="text-green-700 text-2xl mt-1" />
 
               <div>
                 <h3 className="text-lg misti md:text-xl font-semibold
@@ -46,7 +47,7 @@ const TrendingTips = () => {
                 <div className="flex items-center flex-wrap gap-4 text-xs
                  text-gray-500">
                   <span className="flex items-center gap-1 sada">
-                    <FaUserAlt className="text-green-600 " /> {tip.author}
+                    <FaUserAlt className="text-green-600 " /> {tip.name}
                   </span>
                   <span className="flex items-center misti gap-1">
                     <FaHeart className="text-red-400 " /> {tip.likes||0} likes

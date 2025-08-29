@@ -41,7 +41,9 @@ const ShareTips = () => {
 
     }
     return (
-         <div className=" max-w-3xl mx-auto p-8 bgt rounded-lg shadow-md my-10 mt-24">
+         <div className="h-full kala flex">
+          <div className=' max-w-3xl mx-auto p-8 bgt 
+         rounded-lg shadow-md mb-16 mt-24'>
            <Helmet>
                 <title>Plant Tribe-Share Tip</title>
             </Helmet>
@@ -84,7 +86,8 @@ const ShareTips = () => {
           <label className="label">
             <span className="label-text big">Difficulty</span>
           </label>
-          <select name="difficulty" className="select select-bordered w-full mt-1" required>
+          <select name="difficulty" className="select select-bordered 
+          w-full mt-1" required>
             <option value="" disabled selected>Choose difficulty</option>
             <option>Easy</option>
             <option>Medium</option>
@@ -124,7 +127,8 @@ const ShareTips = () => {
           <label className="label">
             <span className="label-text big">Category</span>
           </label>
-          <select name="category" className="select select-bordered w-full mt-1" required>
+          <select name="category" className="select select-bordered 
+          w-full mt-1" required>
             <option value=""  disabled selected>Choose category</option>
             <option>Composting</option>
             <option>Plant Care</option>
@@ -139,7 +143,8 @@ const ShareTips = () => {
           <label className="label">
             <span className="label-text big">Availability</span>
           </label>
-          <select name="availability" className="select select-bordered w-full mt-1" required>
+          <select name="availability" className="select select-bordered w-full 
+          mt-1" required>
             <option value="" disabled selected>Choose availability</option>
             <option>Public</option>
             <option>Hidden</option>
@@ -155,7 +160,7 @@ const ShareTips = () => {
             <input
             value={user?.displayName}
               type="text"
-              className="input input-bordered w-full bg-gray-100"
+              className="input input-bordered w-full bg-gray-100 kala"
              
               readOnly
             />
@@ -167,7 +172,7 @@ const ShareTips = () => {
             <input
             value={user?.email}
               type="email"
-              className="input input-bordered w-full bg-gray-100"
+              className="input input-bordered w-full kala bg-gray-100"
               
               readOnly
             />
@@ -182,6 +187,7 @@ const ShareTips = () => {
           </button>
         </div>
       </form>
+      </div>
     </div>
     );
 };

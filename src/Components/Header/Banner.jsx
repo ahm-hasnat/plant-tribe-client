@@ -9,6 +9,11 @@ import "swiper/css/pagination";
 
 const slides = [
   {
+    image: "https://imgur.com/t7nlTJt.jpg",
+    heading: "Your Green Journey Starts Here",
+    text: "Share your plant stories and inspire others to grow.",
+  },
+  {
     image: "https://imgur.com/fD869A0.png",
     heading: "Connect, Cultivate, and Grow",
     text: "Join events, share tips, and discover local green spaces.",
@@ -18,11 +23,7 @@ const slides = [
     heading: "Find Inspiration in Every Leaf",
     text: "Explore vibrant gardens and learn from experienced growers.",
   },
-  {
-    image: "https://imgur.com/t7nlTJt.jpg",
-    heading: "Your Green Journey Starts Here",
-    text: "Share your plant stories and inspire others to grow.",
-  },
+  
 ];
 
 const Banner = () => {

@@ -72,7 +72,8 @@ const MyTips = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16 mt-10">
+    <div className=" kala">
+        <div className="max-w-6xl mx-auto px-4 py-16 mt-10">
       <Helmet>
         <title>Plant Tribe - My Tips</title>
       </Helmet>
@@ -170,6 +171,7 @@ const MyTips = () => {
           </table>
         </div>
       )}
+    </div>
     </div>
   );
 };

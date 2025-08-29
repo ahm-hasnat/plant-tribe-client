@@ -14,7 +14,8 @@ const ExploreGardeners = () => {
 
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12 mt-12">
+    <div className=" kala">
+        <div className="max-w-6xl mx-auto px-6 py-12 mt-12">
          <Helmet>
                 <title>Plant Tribe - Explore gardener</title>
             </Helmet>
@@ -47,19 +48,19 @@ const ExploreGardeners = () => {
                   </div>
                   <div>
                     <h2 className="card-title">{i.name}</h2>
-                    <p className="text-sm text-gray-500 flex items-center gap-1">
+                    <p className="text-sm text-gray-500 flex items-center gap-1 sada">
                       <FaMapMarkerAlt className="text-red-500" /> {i.location}
                     </p>
                   </div>
                 </div>
 
               
-                <div className="grid grid-cols-2 gap-2 mb-4 text-sm text-gray-600">
+                <div className="grid grid-cols-2 gap-2 mb-4 text-sm text-gray-600 sada">
                   <div className="flex items-center gap-1">
                     <FaUser className="text-pink-500" />
                     <span>{i.gender}</span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 sada">
                     <FaCalendarAlt className="text-indigo-500" />
                     <span>{i.age} yrs</span>
                   </div>
@@ -97,6 +98,7 @@ const ExploreGardeners = () => {
             </div>
           )
         )}
+      </div>
       </div>
     </div>
   );

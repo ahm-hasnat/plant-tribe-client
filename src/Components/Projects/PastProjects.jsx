@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 const PastProjects = () => {
   const navigate = useNavigate();
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 text-center">
+    <div className="max-w-7xl mx-auto px-4 py-12 text-center mt-6">
       <h1 className="text-4xl font-bold big mb-4">Our Past Projects</h1>
       <p className="text-md small mb-10">
         Some of our beautiful projects and landscaping works across the country. 
