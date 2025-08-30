@@ -14,8 +14,9 @@ const UpdateTip = ({ singleTip,setMyTips }) => {
    
   } = singleTip;
 
-  //.log(_id);
+  
   const { user } = use(AuthContext);
+  
   //  //.log(singleTip);
   const handleUpdate = (e) => {
     e.preventDefault();

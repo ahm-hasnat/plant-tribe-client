@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaEnvelope, FaPhoneAlt } from 'rea
 
 const Footer = () => {
   return (
-    <footer className="bg-[#204e51] text-white pt-12 pb-6 px-6 md:px-16 fixed bottom-0">
+    <footer className="bg-[#204e51] text-white pt-12 pb-6 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
       

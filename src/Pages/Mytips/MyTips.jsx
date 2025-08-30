@@ -16,8 +16,7 @@ const MyTips = () => {
   const [myTips, setMyTips] = useState([]);
   const [singleTip, setSingleTip] = useState("");
 
-  //  //.log(singleTip);
-  //    //.log(myTips);
+  
   useEffect(() => {
     if (user?.email) {
       const initialMyTips = allTipsData.filter((tip) => tip.email === email);
@@ -32,12 +31,7 @@ const MyTips = () => {
     setSingleTip(Tip);
     //.log(singleTip);
   };
-  const handleTipUpdate = (updatedTip) => {
-    const updatedList = myTips.map((tip) =>
-      tip._id === updatedTip._id ? updatedTip : tip
-    );
-    setMyTips(updatedList);
-  };
+  
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -95,12 +89,12 @@ const MyTips = () => {
                 <th>Title</th>
                 <th>Category</th>
                 <th>Availability</th>
-                <th>Actions</th>
+                <th className="">Actions</th>
               </tr>
             </thead>
             <tbody>
               {myTips.map((tip, index) => (
-                <tr key={tip._id}>
+                <tr key={tip._id} >
                   <td>{index + 1}</td>
 
                   <td>
@@ -130,11 +124,11 @@ const MyTips = () => {
                       {tip.availability}
                     </span>
                   </td>
-                  <td className="flex ">
-                    <UpdateTip setMyTips={setMyTips} singleTip={singleTip} />
+                  <td>
+                    
                     <button
                       id={`edit-${tip._id}`}
-                      className="btn btn-sm btn-outline btn-info"
+                      className="btn btn-sm btn-outline btn-info ml-3"
                       onClick={() => {
                         getTableData(tip._id);
                         document.getElementById("my_modal_4").showModal();
@@ -142,7 +136,7 @@ const MyTips = () => {
                     >
                       <FaEdit />
                     </button>
-
+                      
                     <Tooltip
                       anchorSelect={`#edit-${tip._id}`}
                       place="top"
@@ -150,10 +144,11 @@ const MyTips = () => {
                     >
                       Edit
                     </Tooltip>
+                    
                     <button
                       onClick={() => handleDelete(tip?._id)}
                       id={`delete-${tip._id}`}
-                      className="btn btn-sm btn-outline btn-error ml-3"
+                      className="btn btn-sm btn-outline btn-error mt-1 ml-3 lg:mt-0"
                     >
                       <FaTrashAlt />
                     </button>
@@ -172,6 +167,7 @@ const MyTips = () => {
         </div>
       )}
     </div>
+    <UpdateTip setMyTips={setMyTips} singleTip={singleTip} />
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Toggle = () => {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="px-4 py-2 rounded-md bg-gray-300 kala cursor-pointer 
+      className="px-4 py-2 rounded-md bg-gray-200 kala cursor-pointer 
       text-base-content 
                  transition  items-center gap-2 shadow  "
     >
