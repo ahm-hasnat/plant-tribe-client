@@ -7,9 +7,12 @@ import Swal from "sweetalert2";
 import { useEffect } from "react";
 import UpdateTip from "../../Components/UpdateTip/UpdateTip";
 import { Helmet } from "react-helmet-async";
+import Lottie from 'lottie-react';
+import lottieJson from '/src/assets/Thinking.json';
 
 const MyTips = () => {
   const { user } = use(AuthContext);
+  
   const allTipsData = useLoaderData();
   const email = user?.email;
 
@@ -76,9 +79,14 @@ const MyTips = () => {
       </h1>
 
       {myTips.length === 0 ? (
-        <p className="text-center text-gray-500">
+        <div className="flex flex-col items-center justify-center">
+        <p className="text-center text-gray-500 ">
           You haven't shared any tips yet.
         </p>
+        <div className="w-full max-w-xs sm:max-w-md">
+      <Lottie animationData={lottieJson} loop={true} />
+    </div>
+    </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="table table-zebra shadow-md rounded-lg">
@@ -89,7 +97,7 @@ const MyTips = () => {
                 <th>Title</th>
                 <th>Category</th>
                 <th>Availability</th>
-                <th className="">Actions</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
