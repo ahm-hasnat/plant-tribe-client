@@ -20,11 +20,11 @@ const Navbar = () => {
     });
   };
 
-  const activeLink = ({ isActive }) => (isActive ? "underline small" : "small");
+  const activeLink = ({ isActive }) => (isActive ? "underline md:small" : "md:small");
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm px-6 fixed z-50 top-0 ">
+      <div className="navbar bg-base-100 shadow-sm md:px-6 fixed z-50 top-0 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,8 +46,8 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content 
-         rounded-box z-1 mt-3 w-52 p-2 shadow "
+              className="menu menu-xs dropdown-content 
+         rounded-box z-10 bg-base-100 mt-2 w-36 p-1 shadow "
             >
               <li>
                 <NavLink to="/" className={activeLink}>
@@ -60,14 +60,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/tips" className={activeLink}>
+                <NavLink to="/browsetips" className={activeLink}>
                   Browse Tips
                 </NavLink>
               </li>
 
               {user && (
                 <li>
-                  <NavLink to="/share" className={activeLink}>
+                  <NavLink to="/sharetips" className={activeLink}>
                     Share a garden Tips
                   </NavLink>
                 </li>
@@ -82,7 +82,7 @@ const Navbar = () => {
             </ul>
           </div>
           <img
-            className="w-12"
+            className="w-12 hidden md:flex"
             src="https://i.ibb.co.com/TZhVXN2/plant.png"
             alt=""
           />

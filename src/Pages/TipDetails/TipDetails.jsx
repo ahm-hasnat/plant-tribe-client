@@ -40,7 +40,7 @@ const TipDetails = () => {
     });
     setTotalLikes(updatedLike);
 
-    fetch(`http://localhost:3000/publictips/${_id}`, {
+    fetch(`https://plant-tribe-server.onrender.com/publictips/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -51,7 +51,7 @@ const TipDetails = () => {
       .then((data) => {
         // console.log(data);
         if (data.modifiedCount) {
-          fetch(`http://localhost:3000/publictips/${_id}`)
+          fetch(`https://plant-tribe-server.onrender.com/publictips/${_id}`)
             .then((res) => res.json())
             .then((data) => {
               console.log(data.likes);
@@ -62,14 +62,15 @@ const TipDetails = () => {
     setTimeout(() => setLiked(false), 600);
   };
   return (
-    <div className=" kala flex">
-        <div className="max-w-5xl mx-auto my-16 p-6">
+    <div className=" kala py-16">
+        <div className="max-w-3xl mx-auto  p-3 ">
       <h1
         className="text-3xl font-bold text-center mb-2 big flex justify-center
-         items-center gap-2"
+         items-center gap-2 "
       >
         <GiVineLeaf className="text-green-600 text-6xl" />
         Explore Garden Tip
+        
       </h1>
       <p className="text-center small text-sm mb-12">
         Discover helpful insights and detailed guidance shared by fellow garden
@@ -77,33 +78,36 @@ const TipDetails = () => {
       </p>
 
       <div
-        className=" bg-base-200 p-10
+        className=" bg-base-200 p-6
     rounded-lg shadow-md relative"
       >
         <Helmet>
           <title>Plant Tribe-Tip Details</title>
         </Helmet>
-        <div className="flex flex-col  gap-10 ">
+        <div className="flex flex-col gap-4 md:gap-10 ">
           <div className="rounded-xl overflow-hidden ">
-            <img src={photo} alt={title} className="w-full h-112  rounded-xl" />
+            <img src={photo} alt={title} className="w-full   rounded-xl" />
           </div>
 
           <div className="flex flex-row justify-between">
             <div className="flex flex-col items-start pl-4 justify-center gap-2 w-full ">
-              <h1 className="text-3xl font-bold mb-2 big">{title}</h1>
+              <h1 className="text-xl md:text-2xl font-bold mb-2 big flex 
+              justify-between w-full text-center">{title}  <span className="badge badge-soft badge-success">
+                {availability}
+              </span></h1>
               <p className="badge badge-secondary text-sm mb-4">{category}</p>
 
               <p
                 className="mb-3 big  dark:text-gray-300 text-sm
-           leading-relaxed font-semibold mr-2"
+           leading-relaxed font-semibold mr-2 w-full"
               >
                 Description :
                 <span className="small font-medium ml-2">{description}</span>
               </p>
 
               <div
-                className="grid grid-cols-2 gap-6 text-sm text-gray-700
-           dark:text-gray-300"
+                className="grid md:grid-cols-2 grid-cols-1 gap-6 text-sm text-gray-700
+           dark:text-gray-300  w-full text-center "
               >
                 <p className="big font-semibold">
                   Plant Type :
@@ -123,7 +127,7 @@ const TipDetails = () => {
                     {name}
                   </span>
                 </p>
-                <div className="flex items-center gap-4 big font-semibold">
+                <div className="flex justify-center items-center gap-4 big font-semibold">
                   <p className="big font-semibold">Total Likes : </p>
                   <span className="flex items-center gap-1 badge badge-dash">
                     <FaHeart className="text-red-600" /> {totalLikes}
@@ -131,11 +135,7 @@ const TipDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="p-0">
-              <span className="badge badge-soft badge-success">
-                {availability}
-              </span>
-            </div>
+           
           </div>
         </div>
 

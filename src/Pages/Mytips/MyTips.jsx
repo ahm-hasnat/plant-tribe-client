@@ -49,7 +49,7 @@ const MyTips = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/alltips/${id}`, {
+        fetch(`https://plant-tribe-server.onrender.com/alltips/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -130,7 +130,7 @@ const MyTips = () => {
                       {tip.availability}
                     </span>
                   </td>
-                  <td className=" ">
+                  <td className="flex ">
                     <UpdateTip setMyTips={setMyTips} singleTip={singleTip} />
                     <button
                       id={`edit-${tip._id}`}

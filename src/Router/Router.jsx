@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/gardeners"),
+        loader: () => fetch("https://plant-tribe-server.onrender.com/gardeners"),
       },
       {
         element: (
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
       {
         path: "/browsetips",
         element: <BrowseTips></BrowseTips>,
-        loader: () => fetch("http://localhost:3000/publictips"),
+        loader: () => fetch("https://plant-tribe-server.onrender.com/publictips"),
       },
       {
         path: "/details/:id",
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
             <TipDetails></TipDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/publictips"),
+        loader: () => fetch("https://plant-tribe-server.onrender.com/publictips"),
       },
       {
         path: "/mytips",
@@ -56,12 +56,12 @@ export const router = createBrowserRouter([
             <MyTips></MyTips>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/alltips"),
+        loader: () => fetch("https://plant-tribe-server.onrender.com/alltips"),
       },
       {
         path: "/explore",
         element: <ExploreGardeners></ExploreGardeners>,
-        loader: () => fetch("http://localhost:3000/allgardeners"),
+        loader: () => fetch("https://plant-tribe-server.onrender.com/allgardeners"),
       }
       
     ],

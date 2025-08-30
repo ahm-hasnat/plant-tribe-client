@@ -27,7 +27,7 @@ const UpdateTip = ({ singleTip,setMyTips }) => {
 
     const updatedTips = { ...newData, name, email };
 
-    fetch(`http://localhost:3000/alltips/${_id}`, {
+    fetch(`https://plant-tribe-server.onrender.com/alltips/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -39,7 +39,7 @@ const UpdateTip = ({ singleTip,setMyTips }) => {
         console.log(data);
         if (data.modifiedCount) {
          
-             fetch("http://localhost:3000/alltips")
+             fetch("https://plant-tribe-server.onrender.com/alltips")
       .then((res) => res.json())
       .then((data) => {
         const userTips = data.filter(tip => tip.email === user?.email);
@@ -64,15 +64,15 @@ const UpdateTip = ({ singleTip,setMyTips }) => {
   return (
     <div>
       <dialog id="my_modal_4" className="modal ">
-        <div className="modal-box w-11/12 max-w-3xl max-h-[95vh] ">
-          <div className=" max-w-full px-4 pb-4  mx-auto  rounded-lg shadow-md bgt ">
+       <div className="modal-box w-full max-w-3xl max-h-[95vh] overflow-y-auto">
+          <div className="w-full px-4 pb-6 sm:px-6 mx-auto rounded-lg shadow-md bgt">
             <div className="flex gap-1 items-center justify-center ">
               <img
                 className="w-16 "
                 src="https://i.ibb.co.com/2YqJc0VT/cherry-blossom.png"
                 alt=""
               />
-              <h2 className="text-3xl font-bold  text-center big">
+              <h2 className="text-xl md:text-3xl font-bold  text-center big">
                 Update your Garden Tip
               </h2>
             </div>

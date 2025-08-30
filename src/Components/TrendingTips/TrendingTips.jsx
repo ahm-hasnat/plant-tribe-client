@@ -6,7 +6,7 @@ import { GiPlantSeed } from "react-icons/gi";
 const TrendingTips = () => {
   const [tips, setTips] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/tips")
+    fetch("https://plant-tribe-server.onrender.com/tips")
       .then((res) => res.json())
       .then((data) => setTips(data));
   }, []);

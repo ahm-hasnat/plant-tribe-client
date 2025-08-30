@@ -21,7 +21,7 @@ const Toggle = () => {
     <button
       onClick={() => setDarkMode(!darkMode)}
       className="px-4 py-2 rounded-md bg-base-200 text-base-content 
-                 transition flex items-center gap-2 shadow"
+                 transition md:flex items-center gap-2 shadow hidden "
     >
       {darkMode ? (
         <>

@@ -68,13 +68,14 @@ const Signin = () => {
           className="card  w-full h-full shrink-0 
     shadow-2xl border border-gray-200"
         >
-          <div className="card-body w-sm">
-            <form onSubmit={handleSignIn} className="form ">
+          <div className="card-body md:w-md">
+            <form onSubmit={handleSignIn} className="form w-full">
               <label className="label">Email</label>
+              <br />
               <input
                 type="email"
                 name="email"
-                className="input mb-1 mt-2"
+                className="input mb-1 mt-2 w-full kala"
                 placeholder="Email"
               />
               <label className="label mt-3">Password</label>
@@ -82,7 +83,7 @@ const Signin = () => {
                 <input
                   type={showPass ? "text" : "password"}
                   name="password"
-                  className="input bg-[#F3F3F3] w-full mt-2"
+                  className="input bg-[#F3F3F3] w-full mt-2 kala"
                   placeholder="Password"
                   required
                 />
@@ -90,7 +91,7 @@ const Signin = () => {
                   onClick={() => setShowPass(!showPass)}
                   type="button"
                   className="btn btn-sm text-gray-400 border-0 bg-[#F3F3F3] 
-                  absolute top-3 right-1"
+                  absolute top-3 right-1 kala"
                 >
                   {showPass ? (
                     <FaEyeSlash className="text-lg"></FaEyeSlash>

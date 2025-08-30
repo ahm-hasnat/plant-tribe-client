@@ -23,7 +23,7 @@ const ShareTips = () => {
     // const {title,photo,plantType,difficulty,description,
     // category,availability} = tipsData;
 
-      fetch('http://localhost:3000/tipsdata',{
+      fetch('https://plant-tribe-server.onrender.com/tipsdata',{
         method : 'POST',
         headers : {
             'content-type' : 'application/json'
@@ -41,19 +41,19 @@ const ShareTips = () => {
 
     }
     return (
-         <div className="h-full kala flex">
-          <div className=' max-w-3xl mx-auto p-8 bgt 
-         rounded-lg shadow-md mb-16 mt-24'>
+         <div className="h-full kala pb-16">
+          <div className='w-[90%] lg:w-[65%] mx-auto p-3 md:p-8 bgt 
+         rounded-lg shadow-md  mt-24 '>
            <Helmet>
                 <title>Plant Tribe-Share Tip</title>
             </Helmet>
             <ToastContainer></ToastContainer>
             <div className='flex gap-1 items-center justify-center '>
                 <img className='w-16 mb-6' src="https://i.ibb.co.com/JjxGLYWY/nature.png" alt="" />
-                <h2 className="text-3xl font-bold mb-6 text-center big">Share a Garden Tip</h2>
+                <h2 className="text-xl md:text-3xl font-bold mb-6 text-center big">Share a Garden Tip</h2>
             </div>
       
-      <form onSubmit={handleSubmitTips} className="space-y-4 ">
+      <form onSubmit={handleSubmitTips} className="space-y-4">
 
        
         <div>
