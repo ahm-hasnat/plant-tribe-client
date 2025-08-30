@@ -31,7 +31,7 @@ const Signin = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
+        // //.log(user);
         Swal.fire({
           title: "Success!",
           text: "Signed in Successfully!.",
@@ -43,7 +43,7 @@ const Signin = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
+        //.log(errorCode);
 
         if (error.code === "auth/invalid-credential") {
           Swal.fire({
@@ -66,10 +66,10 @@ const Signin = () => {
         </div>
         <div
           className="card  w-full h-full shrink-0 
-    shadow-2xl border border-gray-200"
+    shadow-2xl border border-gray-200 nob"
         >
-          <div className="card-body md:w-md">
-            <form onSubmit={handleSignIn} className="form w-full">
+          <div className="card-body md:w-md ">
+            <form onSubmit={handleSignIn} className="form w-full ">
               <label className="label">Email</label>
               <br />
               <input

@@ -35,13 +35,16 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-4 text-white text-lg">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
+            className="hover:text-green-300">
               <FaFacebookF />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+             className="hover:text-green-300">
               <FaInstagram />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+             className="hover:text-green-300">
               <FaTwitter />
             </a>
           </div>
@@ -49,7 +52,8 @@ const Footer = () => {
 
       </div>
 
-      <div className="mt-10 border-t border-green-700 pt-4 text-center text-sm text-gray-400">
+      <div className="mt-10 border-t border-green-700 pt-4 text-center 
+      text-sm text-gray-400">
         © {new Date().getFullYear()} PlantTribe. All rights reserved.
       </div>
     </footer>

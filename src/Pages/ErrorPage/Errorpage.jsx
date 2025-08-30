@@ -11,23 +11,23 @@ const ErrorPage = () => {
     fetch("https://404-error-doodle-animation.tiiny.site/404-Error-Doodle-animation.json")
       .then((res) => res.json())
       .then((data) => setAnimationData(data))
-      .catch((err) => console.error("Failed to load animation:", err));
+      
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-base-200 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-base-100 p-4">
       <Helmet>
         <title>Error - Page Not Found</title>
       </Helmet>
- <h1 className="text-3xl font-bold my-6">Oops! Something went wrong.</h1>
-      <div className="w-full max-w-xs sm:max-w-md">
+ <h1 className="text-2xl font-bold my-8">Oops! Something went wrong.</h1>
+      <div className="w-full max-w-xs sm:max-w-md ">
         {animationData && (
           <Lottie animationData={animationData} loop={true} />
         )}
       </div>
 
      
-      <p className="text-gray-600 mt-2 mb-6 text-center">
+      <p className="text-gray-600 mt-2 mb-6 text-center sada">
         Looks like this page flew away with the wind.
       </p>
 

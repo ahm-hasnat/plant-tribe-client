@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { use } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 import Swal from "sweetalert2";
@@ -14,9 +14,9 @@ const UpdateTip = ({ singleTip,setMyTips }) => {
    
   } = singleTip;
 
-  console.log(_id);
+  //.log(_id);
   const { user } = use(AuthContext);
-  //  console.log(singleTip);
+  //  //.log(singleTip);
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,7 +36,7 @@ const UpdateTip = ({ singleTip,setMyTips }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //.log(data);
         if (data.modifiedCount) {
          
              fetch("https://plant-tribe-server.onrender.com/alltips")

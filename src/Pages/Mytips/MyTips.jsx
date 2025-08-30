@@ -16,8 +16,8 @@ const MyTips = () => {
   const [myTips, setMyTips] = useState([]);
   const [singleTip, setSingleTip] = useState("");
 
-  //  console.log(singleTip);
-  //    console.log(myTips);
+  //  //.log(singleTip);
+  //    //.log(myTips);
   useEffect(() => {
     if (user?.email) {
       const initialMyTips = allTipsData.filter((tip) => tip.email === email);
@@ -30,7 +30,7 @@ const MyTips = () => {
     const Tip = myTips.find((tip) => tip._id === id);
 
     setSingleTip(Tip);
-    console.log(singleTip);
+    //.log(singleTip);
   };
   const handleTipUpdate = (updatedTip) => {
     const updatedList = myTips.map((tip) =>

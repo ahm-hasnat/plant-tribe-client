@@ -4,7 +4,6 @@ import { useLoaderData, useParams } from "react-router";
 import { GiVineLeaf } from "react-icons/gi";
 import { Helmet } from "react-helmet-async";
 import toast, { Toaster } from "react-hot-toast";
-import { BsArrowThroughHeartFill } from "react-icons/bs";
 
 const TipDetails = () => {
   const { id } = useParams();
@@ -49,12 +48,12 @@ const TipDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
+        // //.log(data);
         if (data.modifiedCount) {
           fetch(`https://plant-tribe-server.onrender.com/publictips/${_id}`)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data.likes);
+              //.log(data.likes);
               setTotalLikes(data.likes);
             });
         }
@@ -92,7 +91,8 @@ const TipDetails = () => {
           <div className="flex flex-row justify-between">
             <div className="flex flex-col items-start pl-4 justify-center gap-2 w-full ">
               <h1 className="text-xl md:text-2xl font-bold mb-2 big flex 
-              justify-between w-full text-center">{title}  <span className="badge badge-soft badge-success">
+              justify-between w-full text-center">{title}  <span className="badge 
+              badge-soft badge-success">
                 {availability}
               </span></h1>
               <p className="badge badge-secondary text-sm mb-4">{category}</p>

@@ -30,7 +30,7 @@ const ResetPass = () => {
             navigate('/auth/signin');
         })
        .catch((error) => {
-    // console.error(error.code, error.message);
+    // //.error(error.code, error.message);
     Swal.fire("Error", error.message, "error");
   });
 
@@ -46,7 +46,7 @@ const ResetPass = () => {
               
             </div>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 
-            shadow-2xl border border-gray-200">
+            shadow-2xl border border-gray-200 nob">
               <div className="card-body">
                 <form onSubmit={handleResetPass} className="form space-y-1">
                   <label className="label">Email</label>

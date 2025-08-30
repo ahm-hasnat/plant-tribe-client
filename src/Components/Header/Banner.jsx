@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { useNavigate } from "react-router";
@@ -6,6 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 import "swiper/css";
 import "swiper/css/pagination";
+
 
 const slides = [
   {
@@ -27,8 +28,9 @@ const slides = [
 ];
 
 const Banner = () => {
+  
   const navigate = useNavigate();
-
+ 
   return (
     <div className="relative h-[90vh] w-full overflow-hidden mt-16">
       <Swiper

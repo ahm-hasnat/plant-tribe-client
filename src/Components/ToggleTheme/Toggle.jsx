@@ -20,17 +20,18 @@ const Toggle = () => {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="px-4 py-2 rounded-md bg-base-200 text-base-content 
-                 transition md:flex items-center gap-2 shadow hidden "
+      className="px-4 py-2 rounded-md bg-gray-300 kala cursor-pointer 
+      text-base-content 
+                 transition  items-center gap-2 shadow  "
     >
       {darkMode ? (
         <>
-          <FiSun className="text-xl" />
+          <FiSun className="md:text-xl" />
           
         </>
       ) : (
         <>
-          <FiMoon className="text-xl" />
+          <FiMoon className="md:text-xl" />
           
         </>
       )}

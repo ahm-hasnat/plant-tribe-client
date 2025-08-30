@@ -19,7 +19,7 @@ const ShareTips = () => {
     const newTips = {...newData,name,email};
     
 
-    console.log(newTips);
+    //.log(newTips);
     // const {title,photo,plantType,difficulty,description,
     // category,availability} = tipsData;
 
@@ -49,8 +49,10 @@ const ShareTips = () => {
             </Helmet>
             <ToastContainer></ToastContainer>
             <div className='flex gap-1 items-center justify-center '>
-                <img className='w-16 mb-6' src="https://i.ibb.co.com/JjxGLYWY/nature.png" alt="" />
-                <h2 className="text-xl md:text-3xl font-bold mb-6 text-center big">Share a Garden Tip</h2>
+                <img className='w-16 mb-6' src="https://i.ibb.co.com/JjxGLYWY/nature.png" 
+                alt="" />
+                <h2 className="text-xl md:text-3xl font-bold mb-6 text-center big">Share 
+                  a Garden Tip</h2>
             </div>
       
       <form onSubmit={handleSubmitTips} className="space-y-4">

@@ -30,9 +30,12 @@
     background-color: #1e1e1e;
   }
   .sada{
-    color: white;
+    color: rgba(255, 255, 255, 0.772);
   }
   .misti{
-    color:#f26b5e;
+    color:#1aa507;
+  }
+  .nob{
+    border-color:rgb(66, 72, 66);
   }
 }

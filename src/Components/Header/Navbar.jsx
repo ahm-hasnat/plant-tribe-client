@@ -7,7 +7,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { user, signout } = use(AuthContext);
   const [showSignOutBtn, setShowSignOutBtn] = useState(false);
-  // console.log(user);
+  // //.log(user);
   const handleSignOut = () => {
     setShowSignOutBtn(false);
     signout().then(() => {
@@ -82,11 +82,11 @@ const Navbar = () => {
             </ul>
           </div>
           <img
-            className="w-12 hidden md:flex"
+            className="w-12 hidden lg:flex"
             src="https://i.ibb.co.com/TZhVXN2/plant.png"
             alt=""
           />
-          <a className="btn btn-ghost text-xl big">Plant Tribe</a>
+          <a className="btn btn-ghost px-0 md:px-4 text-xl big">Plant Tribe</a>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1 space-x-2">
@@ -124,15 +124,19 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user && (
+            <div className="flex items-center">
             <div
               onClick={() => setShowSignOutBtn((show) => !show)}
               className="avatar 
           avatar-online mr-5"
             >
-              <div className="w-12 rounded-full">
+              <div className="md:w-11 w-9 rounded-full">
                 <img title={user?.displayName} src={user?.photoURL} />
               </div>
+              
             </div>
+             <Toggle></Toggle>
+             </div>
           )}
           {user && (
             <div
@@ -165,7 +169,7 @@ const Navbar = () => {
               Sign In
             </Link>
           )}
-          <Toggle></Toggle>
+         
         </div>
       </div>
     </div>

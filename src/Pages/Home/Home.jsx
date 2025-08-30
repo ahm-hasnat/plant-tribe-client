@@ -8,6 +8,8 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Loader from "../../Components/Loader/Loader";
 
+
+
 const Home = () => {
   const { loading } = useContext(AuthContext);
 

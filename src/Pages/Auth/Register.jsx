@@ -18,7 +18,7 @@ const Register = () => {
     const userData = Object.fromEntries(formData.entries());
 
     const { name, photo, email, password } = userData;
-    console.log(name);
+    //.log(name);
 
     const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     const hasUpper = /[A-Z]/.test(password);
@@ -48,7 +48,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        //.log(result);
         const user = result.user;
 
         setUser(user);
@@ -87,7 +87,7 @@ const Register = () => {
         </div>
         <div
           className="card   h-full  
-    shadow-2xl border border-gray-200"
+    shadow-2xl border border-gray-200 nob"
         >
           <div className="card-body md:w-lg ">
             <form onSubmit={handleRegister} className="form w-full">
@@ -96,7 +96,7 @@ const Register = () => {
               <input
                 type="text"
                 name="name"
-                className="input mb-1 mt-2 w-full"
+                className="input mb-1 mt-2 w-full kala"
                 placeholder="name"
               />
               <br />
@@ -105,7 +105,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                className="input mb-1 mt-2 w-full"
+                className="input mb-1 mt-2 w-full kala"
                 placeholder="Email"
               />
               <br />
@@ -114,7 +114,7 @@ const Register = () => {
               <input
                 type="link"
                 name="photo"
-                className="input mb-1 mt-2 w-full"
+                className="input mb-1 mt-2 w-full kala"
                 placeholder="photo"
               />
               <br />
@@ -124,7 +124,7 @@ const Register = () => {
                 <input
                   type={showPass ? "text" : "password"}
                   name="password"
-                  className="input bg-[#F3F3F3] w-full mt-2"
+                  className="input bg-[#F3F3F3] w-full mt-2 kala"
                   placeholder="Password"
                   required
                 />
@@ -133,7 +133,7 @@ const Register = () => {
                   onClick={() => setShowPass(!showPass)}
                   type="button"
                   className="btn btn-sm text-gray-400 border-0 bg-[#F3F3F3] 
-                  absolute top-3 right-1"
+                  absolute top-3 right-1 kala"
                 >
                   {showPass ? (
                     <FaEyeSlash className="text-lg"></FaEyeSlash>

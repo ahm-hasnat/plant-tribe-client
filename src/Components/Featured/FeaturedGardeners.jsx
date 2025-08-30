@@ -16,16 +16,20 @@ const FeaturedGardeners = () => {
         there's a place for you here.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 
+      lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {gardeners?.map((gardener) => (
           <div
             key={gardener._id}
-            className="bg-[#c1e4dc44] kala p-6 rounded-xl shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 border border-green-100"
+            className="bg-[#c1e4dc44] kala p-6 rounded-xl shadow-lg 
+            hover:shadow-xl transition-transform hover:-translate-y-1 border 
+             border-green-100 nob"
           >
             <img
               src={gardener.avatar || gardener.photo}
               alt={gardener.name}
-              className="w-24 h-24 object-cover rounded-full border-4 border-[#3a4b55] mx-auto mb-4"
+              className="w-24 h-24 object-cover rounded-full border-4 
+              border-[#3a4b55] mx-auto mb-4"
             />
 
             <h3 className="text-xl font-semibold text-center big">
@@ -39,19 +43,21 @@ const FeaturedGardeners = () => {
             <div className="mt-3 text-center text-sm text-gray-700">
               <p className="font-bold mr-2 text-center sada">
                 Specialty:
-                <span className="badge badge-outline font-light ml-3 badge-info badge-sm">
+                <span className="badge badge-outline font-light ml-3 
+                badge-info badge-sm">
                   {gardener.specialty}
                 </span>
               </p>
             </div>
 
-            <div className="flex justify-center gap-4 mt-4 text-sm font-medium text-gray-700">
+            <div className="flex justify-center gap-4 mt-4 text-sm font-medium
+            sada text-gray-700">
               <div className="flex items-center gap-1">
                 <FaUser className="text-pink-500" />
                 {gardener.gender}
               </div>
               <div className="flex items-center gap-1">
-                <FaCalendarAlt className="text-indigo-500" />
+                <FaCalendarAlt className="text-indigo-500 sada" />
                 {gardener.age} yrs
               </div>
               <div className="flex items-center gap-1">

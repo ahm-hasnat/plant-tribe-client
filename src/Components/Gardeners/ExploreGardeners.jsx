@@ -74,7 +74,7 @@ const ExploreGardeners = () => {
                   </div>
                 </div>
 
-                <p className="text-sm small font-medium line-clamp-4 mb-4">
+                <p className="text-sm big font-medium line-clamp-4 mb-4">
                   {i.experiences}
                 </p>
 
